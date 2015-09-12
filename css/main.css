@@ -1,0 +1,45 @@
+body {
+    background-color: #1f1f1f;
+    color: #3a3a3a;
+    overflow-y: hidden;
+}
+
+.mainContainer {
+    width: 30%;
+    position: relative;
+    margin: 7% auto;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.mainContainer img.logo {
+	display: inline-block;
+    width: 100%;
+	animation-name: scaleLogo;
+	animation-duration: 6s;
+	animation-iteration-count: infinite;
+}
+
+.mainContainer h1 {
+    font-size: 1.5em;
+}
+
+.mainContainer i {
+    font-size: 1.5em;
+    margin: 0 5px;
+}
+
+.mainContainer i:hover {
+    color: #1b75bb;
+    cursor: pointer;
+}
+
+a {
+    color: #3a3a3a;
+}
+
+@keyframes scaleLogo {
+	0% { transform: scale(1.05); }
+	50% { transform: scale(0.95); }
+	100% { transform: scale(1.05); }
+}
