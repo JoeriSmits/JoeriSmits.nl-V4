@@ -1,0 +1,55 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+<dom-module id="js-homeslide">
+    <template>
+        <style>
+            :host {
+                display: block;
+                height: 100vh;
+                background: url('../../images/bg.jpg') 100% no-repeat;
+                background-size: cover;
+
+                @apply(--layout-center);
+                @apply(--layout-vertical);
+                @apply(--layout-center-justified);
+            }
+
+            #content {
+                width: 65vw;
+                margin: 0 3vw;
+                text-align: center;
+            }
+
+            img {
+                margin-bottom: 1.5vh;
+                border-radius: 100%;
+            }
+
+            h1, h2 {
+                font-size: 3.5vw;
+                color: #eee;
+                text-shadow: 0 0 20px #444;
+                font-family: 'Open Sans', sans-serif;
+                margin: 0 0 1vh 0;
+            }
+
+            h2 {
+                font-size: 2vw;
+            }
+
+        </style>
+        
+        <div id="content">
+            <img src="../../images/avatar.jpeg" height="125" width="125">
+            <h1>Hi there, I'm Joeri Smits</h1>
+            <h2>Student web development at the HAN University for Applied Science</h2>
+        </div>
+
+    </template>
+    <script>
+        Polymer({
+            is: 'js-homeslide'
+        });
+    </script>
+</dom-module>

@@ -1,0 +1,26 @@
+{
+  "name": "JoeriSmits.nl-V4",
+  "version": "0.0.0",
+  "homepage": "https://github.com/JoeriSmits/JoeriSmits.nl-V4",
+  "authors": [
+    "Joeri Smits <joeri.smits@planet.nl>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~1.1.4",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#~1.0.4",
+    "iron-icon": "PolymerElements/iron-icon#~1.0.5",
+    "iron-icons": "PolymerElements/iron-icons#~1.0.4"
+  }
+}
