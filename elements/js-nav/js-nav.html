@@ -1,0 +1,30 @@
+<dom-module id="js-nav">
+    <template>
+        <style>
+            :host {
+                display: block;
+                color: #eee;
+            }
+
+            #menu {
+                position: absolute;
+                top: 2vh;
+                right: 1vw;
+            }
+
+            ui-button {
+                float: left;
+            }
+        </style>
+        <div id="menu">
+            <ui-button>About me</ui-button>
+            <ui-button>Projects</ui-button>
+            <ui-button>Contact me</ui-button>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: 'js-nav'
+        });
+    </script>
+</dom-module>

@@ -2,8 +2,14 @@
 <html>
 <head>
     <title>Staging - Joeri Smits</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
     <link rel="import" href="bower_components/polymer/polymer.html">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css' async>
+
     <script src="bower_components/webcomponentsjs/webcomponents-lite.js" async></script>
+
 
     <link rel="import" href="elements/elements.html" async>
 </head>
@@ -12,10 +18,18 @@
         <style is="custom-style">
             body {
                 margin: 0;
+                overflow-x: hidden;
             }
         </style>
-        <js-homeslide></js-homeslide>
-        <ui-bottom-arrow></ui-bottom-arrow>
+
+        <ui-spread>
+            <js-homeslide></js-homeslide>
+            <ui-bottom-arrow></ui-bottom-arrow>
+        </ui-spread>
+
+        <ui-spread>
+            <js-blog></js-blog>
+        </ui-spread>
     </template>
 </body>
 </html>

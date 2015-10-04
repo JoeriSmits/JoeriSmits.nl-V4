@@ -1,14 +1,13 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
 <dom-module id="js-homeslide">
     <template>
         <style>
             :host {
                 display: block;
-                height: 100vh;
-                background: url('../../images/bg.jpg') 100% no-repeat;
+                background: url('../../images/bg.jpg') no-repeat;
                 background-size: cover;
+                height: 100vh;
 
                 @apply(--layout-center);
                 @apply(--layout-vertical);
@@ -16,7 +15,7 @@
             }
 
             #content {
-                width: 65vw;
+                width: 40vw;
                 margin: 0 3vw;
                 text-align: center;
             }
@@ -24,26 +23,29 @@
             img {
                 margin-bottom: 1.5vh;
                 border-radius: 100%;
+                border: 3px solid #eee;
             }
 
             h1, h2 {
-                font-size: 3.5vw;
+                font-size: 2.5vw;
                 color: #eee;
-                text-shadow: 0 0 20px #444;
+                text-shadow: 0 0 10px #444;
                 font-family: 'Open Sans', sans-serif;
                 margin: 0 0 1vh 0;
             }
 
             h2 {
-                font-size: 2vw;
+                font-size: 1.5vw;
             }
 
         </style>
         
         <div id="content">
             <img src="../../images/avatar.jpeg" height="125" width="125">
-            <h1>Hi there, I'm Joeri Smits</h1>
-            <h2>Student web development at the HAN University for Applied Science</h2>
+            <h1>Hi there, my name is Joeri Smits</h1>
+            <h2>I'm a student in computer science and I love to make smart web solutions. Take a look around to find more information about me and what I do.</h2>
+
+            <js-nav></js-nav>
         </div>
 
     </template>
