@@ -1,12 +1,12 @@
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html" async>
+<link rel="import" href="../../bower_components/iron-image/iron-image.html" async>
 
 <dom-module id="js-homeslide">
     <template>
         <style>
             :host {
+                position: relative;
                 display: block;
-                background: url('../../images/bg.jpg') no-repeat;
-                background-size: cover;
                 height: 100vh;
 
                 @apply(--layout-center);
@@ -14,16 +14,26 @@
                 @apply(--layout-center-justified);
             }
 
+            iron-image#bg{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100vw;
+                height: 100vh;
+                z-index: 0;
+            }
+
+            iron-image#avatar::content img {
+                margin-bottom: 1.5vh;
+                border-radius: 100%;
+                border: 3px solid #eee;
+            }
+
             #content {
                 width: 40vw;
                 margin: 0 3vw;
                 text-align: center;
-            }
-
-            img {
-                margin-bottom: 1.5vh;
-                border-radius: 100%;
-                border: 3px solid #eee;
+                z-index: 1;
             }
 
             h1, h2 {
@@ -39,9 +49,10 @@
             }
 
         </style>
-        
+        <iron-image id="bg" style="background-color: #222;" src="../../images/bg.jpg" preload fade sizing="cover"></iron-image>
+
         <div id="content">
-            <img src="../../images/avatar.jpeg" height="125" width="125">
+            <iron-image id="avatar" src="../../images/avatar.jpeg" preload fade></iron-image>
             <h1>Hi there, my name is Joeri Smits</h1>
             <h2>I'm a student in computer science and I love to make smart web solutions. Take a look around to find more information about me and what I do.</h2>
 
