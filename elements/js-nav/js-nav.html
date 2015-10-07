@@ -22,14 +22,19 @@
             }
         </style>
         <div id="menu">
-            <ui-button>About me</ui-button>
+            <ui-button on-tap="aboutMeTapped">About me</ui-button>
             <ui-button>Projects</ui-button>
             <ui-button>Contact me</ui-button>
         </div>
     </template>
     <script>
         Polymer({
-            is: 'js-nav'
+            is: 'js-nav',
+
+            aboutMeTapped: function() {
+                var aboutMePage = document.querySelector('#about');
+                aboutMePage.show();
+            }
         });
     </script>
 </dom-module>
