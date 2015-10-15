@@ -8,16 +8,17 @@
     <template>
         <style>
             :host {
-                display: none;
-                height: 100vh;
+                --iron-icon-height: 75px;
+                --iron-icon-width: 75px;
+            }
+
+            #page {
+                min-height: 100vh;
                 width: 100%;
                 position: absolute;
                 top: 0;
                 left: 0;
                 z-index: 6;
-
-                --iron-icon-height: 75px;
-                --iron-icon-width: 75px;
             }
             #placeholder {
                 background-color: #999;
@@ -32,14 +33,17 @@
             }
         </style>
         
-        <iron-icon icon="close" on-tap="close"></iron-icon>
-        <div id="placeholder" class="fit"></div>
-        <div id="container">
-            <content></content>
+        <div id="page" hidden$="{{!opened}}">
+            <iron-icon icon="close" on-tap="close"></iron-icon>
+            <div id="placeholder" class="fit"></div>
+            <div id="container">
+                <content></content>
+            </div>
         </div>
 
     </template>
     <script>
+        'use strict';
         Polymer({
             is: 'ui-page',
 
@@ -48,20 +52,28 @@
             ],
 
             properties: {
-                opened: Boolean,
-                
+                opened: {
+                    type: Boolean,
+                    value: false
+                },
+
+                animating: {
+                    type: Boolean,
+                    value: false
+                },
+
                 animationConfig: {
                     value: function() {
                         return {
                             'entry': {
                                 name: 'scale-up-animation',
-                                node: this
+                                node: this.$.page
                             },
                             'exit': {
                                 name: 'fade-out-animation',
-                                node: this
+                                node: this.$.page
                             }
-                        }
+                        };
                     }
                 }
             },
@@ -71,20 +83,25 @@
             },
             
             show: function() {
-                this.opened = true;
-                this.style.display = 'inline-block';
-                this.playAnimation('entry');
+                if(this.animating === false) {
+                    this.animating = true;
+                    this.opened = true;
+                    this.playAnimation('entry', 'entry');
+                }
             },
 
             close: function() {
-                this.opened = false;
-                this.playAnimation('exit');
+                if(this.animating === false) {
+                    this.animating = true;
+                    this.playAnimation('exit', 'exit');
+                }
             },
 
-            _onNeonAnimationFinish: function() {
-                if (!this.opened) {
-                  this.style.display = 'none';
+            _onNeonAnimationFinish: function(e, animation) {
+                if(animation === 'exit' && this.opened === true) {
+                    this.opened = false;
                 }
+                this.animating = false;
             }
         });
     </script>
