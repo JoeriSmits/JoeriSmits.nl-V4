@@ -1,0 +1,66 @@
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css' async>
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+
+<link rel="import" href="../js-homeslide/js-homeslide.html" async>
+<link rel="import" href="../ui-bottom-arrow/ui-bottom-arrow.html" async>
+<link rel="import" href="../ui-button/ui-button.html" async>
+<link rel="import" href="../js-blog/js-blog.html" async>
+<link rel="import" href="../ui-page/ui-page.html" async>
+
+<dom-module id="js-app">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        
+        <template is="dom-if" if="{{_isCurrentState('home', state)}}">
+            <js-homeslide></js-homeslide>
+            <ui-bottom-arrow></ui-bottom-arrow>
+        </template>
+
+        <template is="dom-if" if="{{_isCurrentState('about', state)}}">
+            <ui-page id="about">
+                <h1>Hellow</h1>
+            </ui-page>
+        </template>
+
+
+        <js-blog></js-blog>
+
+    </template>
+    <script>
+        /* jshint newcap:false */
+        /* global Polymer:false */
+        /* global page:false */
+        'use strict';
+
+        Polymer({
+            is: 'js-app',
+
+            properties: {
+                state: String
+            },
+
+            listeners: {
+                'transition': '_transition'
+            },
+
+            _isCurrentState: function (stateName, currentState)
+            {
+                return stateName === currentState ? true : false;
+            },
+
+            _transition: function (e, detail)
+            {
+                switch (detail) {
+                    case 'about':
+                        page('/about');
+                        break;
+                }
+            }
+        });
+    </script>
+</dom-module>

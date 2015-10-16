@@ -1,0 +1,25 @@
+<script src="../bower_components/page/page.js"></script>
+
+<script>
+    /* global app: false */
+    /* global page: false */
+    'use strict';
+
+    var app = document.getElementsByTagName('js-app')[0];
+
+    page('/', function () {
+        app.state = 'home';
+    });
+
+    page('/about', function () {
+        app.state = 'about';
+    });
+    
+    // add #! before urls
+    page({
+        click: true,
+        popstate: true,
+        hashbang: true
+    });
+
+</script>

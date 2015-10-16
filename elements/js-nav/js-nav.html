@@ -28,12 +28,15 @@
         </div>
     </template>
     <script>
+        /* global Polymer:false */
+        /* jshint newcap:false */
+        'use strict';
+
         Polymer({
             is: 'js-nav',
 
             aboutMeTapped: function() {
-                var aboutMePage = document.querySelector('#about');
-                aboutMePage.show();
+                this.fire('transition', 'about');
             }
         });
     </script>
