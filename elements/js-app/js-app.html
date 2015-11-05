@@ -8,6 +8,8 @@
 <link rel="import" href="../js-blog/js-blog.html" async>
 <link rel="import" href="../ui-page/ui-page.html" async>
 
+<link rel="import" href="../../bower_components/iron-image/iron-image.html" async>
+
 <dom-module id="js-app">
     <template>
         <style>
@@ -16,19 +18,19 @@
             }
         </style>
         
-        <template is="dom-if" if="{{_isCurrentState('home', state)}}">
+        <template is="dom-if" if="{{_isCurrentState('home', state)}}" restamp>
             <js-homeslide></js-homeslide>
             <ui-bottom-arrow></ui-bottom-arrow>
         </template>
 
-        <template is="dom-if" if="{{_isCurrentState('about', state)}}">
+        <template is="dom-if" if="{{_isCurrentState('about', state)}}" restamp>
             <ui-page id="about">
-                <h1>Hellow</h1>
+                <iron-image src="../../images/plane.jpg" preload fade sizing="cover"></iron-image>
             </ui-page>
         </template>
 
 
-        <js-blog></js-blog>
+        <!-- <js-blog></js-blog> -->
 
     </template>
     <script>
@@ -41,7 +43,10 @@
             is: 'js-app',
 
             properties: {
-                state: String
+                state: {
+                    type: String,
+                    observer: '_stateChanged'
+                }
             },
 
             listeners: {
@@ -56,10 +61,18 @@
             _transition: function (e, detail)
             {
                 switch (detail) {
+                    case 'home':
+                        page('/');
+                        break;
                     case 'about':
                         page('/about');
                         break;
                 }
+            },
+
+            _stateChanged: function ()
+            {
+                this.notifyPath();
             }
         });
     </script>
