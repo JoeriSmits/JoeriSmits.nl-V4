@@ -40,7 +40,7 @@
             }
 
             #content {
-                max-width: 50%;
+                max-width: 40%;
                 margin: 0 3vw;
                 text-align: center;
                 z-index: 1;
@@ -64,20 +64,30 @@
                 100% {transform: translateY(-1vh);}
             }
 
-            #arrow {
+            #menu {
                 position: absolute;
                 bottom: 1vh;
                 width: 100vw;
                 text-align: center;
                 color: #eee;
-
+                
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
             }
 
-            #arrow iron-icon:unresolved {
+            #menu:hover {
+                cursor: pointer;
+            }
+
+            #menu iron-icon:unresolved {
                 display: none;
             }
 
-            #arrow iron-icon {
+            #menu iron-icon {
                 width: 100%;
                 animation-name: point;
                 animation-duration: 3s;
@@ -85,6 +95,24 @@
 
                 --iron-icon-width: 10vw;
                 --iron-icon-height: 10vh;
+            }
+
+            @media (max-width: 1150px) {
+                #content {
+                    max-width: 50%;
+                }
+            }
+
+            @media (max-width: 940px) {
+                #content {
+                    max-width: 70%;
+                }
+            }
+
+            @media (max-width: 650px) {
+                #content {
+                    max-width: 85%;
+                }
             }
 
         </style>
@@ -98,7 +126,7 @@
 
         </div>
 
-        <div id="arrow">
+        <div id="menu">
             <iron-icon icon="expand-less"></iron-icon>
             <span>MENU</span>
         </div>
