@@ -1,9 +1,17 @@
+<!--
+**
+ * Copyright JoeriSmits.nl 2015
+ *
+-->
 <link rel="import" href="../js-nav/js-nav.html" async>
 
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/iron-image/iron-image.html" async>
 
-<dom-module id="js-homeslide">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+
+<dom-module id="state-home">
     <template>
         <style>
             :host {
@@ -32,22 +40,51 @@
             }
 
             #content {
-                width: 40vw;
+                max-width: 50%;
                 margin: 0 3vw;
                 text-align: center;
                 z-index: 1;
             }
 
             h1, h2 {
-                font-size: 2.5vw;
                 color: #eee;
                 text-shadow: 0 0 10px #444;
-                font-family: 'Open Sans', sans-serif;
                 margin: 0 0 1vh 0;
             }
 
             h2 {
-                font-size: 1.5vw;
+                font-size: 1.2em;
+            }
+
+            @keyframes point {
+                0% {transform: translateY(-1vh);}
+                50% {transform: translateY(2vh);}
+                75% {transform: translateY(1vh);}
+                90% {transform: translateY(2vh);}
+                100% {transform: translateY(-1vh);}
+            }
+
+            #arrow {
+                position: absolute;
+                bottom: 1vh;
+                width: 100vw;
+                text-align: center;
+                color: #eee;
+
+            }
+
+            #arrow iron-icon:unresolved {
+                display: none;
+            }
+
+            #arrow iron-icon {
+                width: 100%;
+                animation-name: point;
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+
+                --iron-icon-width: 10vw;
+                --iron-icon-height: 10vh;
             }
 
         </style>
@@ -56,11 +93,15 @@
         <div id="content">
             <js-nav></js-nav>
 
-            <iron-image id="avatar" src="../../images/avatar.jpeg" preload fade></iron-image>
             <h1>Hi there, my name is Joeri Smits</h1>
             <h2>I'm a student in computer science. Take a look around to find more information about me and what I do.</h2>
+
         </div>
 
+        <div id="arrow">
+            <iron-icon icon="expand-less"></iron-icon>
+            <span>MENU</span>
+        </div>
     </template>
     <script>
         /* global Polymer:false */
@@ -68,7 +109,7 @@
         'use strict';
         
         Polymer({
-            is: 'js-homeslide',
+            is: 'state-home',
         });
     </script>
 </dom-module>

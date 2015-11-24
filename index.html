@@ -3,23 +3,24 @@
 <head>
     <title>Staging - Joeri Smits</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
     <link rel="import" href="bower_components/polymer/polymer.html">
 
-    <link rel="import" href="elements/elements.html" async>
+    <link rel="import" href="elements/elements.html">
 </head>
 <body>
-    <template is="dom-bind">
+    <template is="dom-bind" id="app">
         <style is="custom-style">
             body {
                 margin: 0;
                 overflow-x: hidden;
+                font-family: 'Open Sans', sans-serif;
             }
         </style>
-    
-        <js-app></js-app>
+        <js-app
+            state="{{state}}"
+        ></js-app>
     </template>
-    <script type="text/javascript" src="scripts/app.js" async></script>
+
+    <script type="text/javascript" src="scripts/app.js"></script>
 </body>
 </html>
