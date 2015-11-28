@@ -3,6 +3,9 @@
  * Copyright JoeriSmits.nl 2015
  *
 -->
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+
 <dom-module id="js-nav">
     <template>
         <style>
@@ -13,23 +16,49 @@
 
             #menu {
                 position: absolute;
-                top: 2vh;
-                right: 1vw;
+                bottom: 1vh;
+                left: 0;
+                width: 100vw;
+                text-align: center;
+                color: #eee;
+                
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
             }
 
-            ui-button:unresolved {
-                opacity: 0;
+            #menu:hover {
+                cursor: pointer;
             }
 
-            ui-button {
-                opacity: 1;
-                float: left;
+            #menu iron-icon:unresolved {
+                display: none;
+            }
+
+            #menu iron-icon {
+                width: 100%;
+                animation-name: point;
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+
+                --iron-icon-width: 10vw;
+                --iron-icon-height: 10vh;
+            }
+
+            @keyframes point {
+                0% {transform: translateY(-1vh);}
+                50% {transform: translateY(2vh);}
+                75% {transform: translateY(1vh);}
+                90% {transform: translateY(2vh);}
+                100% {transform: translateY(-1vh);}
             }
         </style>
-        <div id="menu">
-            <ui-button on-tap="aboutMeTapped">About me</ui-button>
-            <ui-button>Projects</ui-button>
-            <ui-button>Contact me</ui-button>
+        <div id="menu" on-tap="_openMenu">
+            <iron-icon icon="expand-less"></iron-icon>
+            <span>MENU</span>
         </div>
     </template>
     <script>
@@ -40,8 +69,9 @@
         Polymer({
             is: 'js-nav',
 
-            aboutMeTapped: function() {
-                this.fire('transition', 'about');
+            _openMenu: function ()
+            {
+console.log('test');
             }
         });
     </script>

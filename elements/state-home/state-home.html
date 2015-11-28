@@ -8,9 +8,6 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/iron-image/iron-image.html" async>
 
-<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
-<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
-
 <dom-module id="state-home">
     <template>
         <style>
@@ -33,12 +30,6 @@
                 z-index: 0;
             }
 
-            iron-image#avatar::content img {
-                margin-bottom: 1.5vh;
-                border-radius: 100%;
-                border: 3px solid #eee;
-            }
-
             #content {
                 max-width: 30%;
                 margin: 0 3vw;
@@ -54,47 +45,6 @@
 
             h2 {
                 font-size: 1.2em;
-            }
-
-            @keyframes point {
-                0% {transform: translateY(-1vh);}
-                50% {transform: translateY(2vh);}
-                75% {transform: translateY(1vh);}
-                90% {transform: translateY(2vh);}
-                100% {transform: translateY(-1vh);}
-            }
-
-            #menu {
-                position: absolute;
-                bottom: 1vh;
-                width: 100vw;
-                text-align: center;
-                color: #eee;
-                
-                -webkit-touch-callout: none;
-                -webkit-user-select: none;
-                -khtml-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-            }
-
-            #menu:hover {
-                cursor: pointer;
-            }
-
-            #menu iron-icon:unresolved {
-                display: none;
-            }
-
-            #menu iron-icon {
-                width: 100%;
-                animation-name: point;
-                animation-duration: 3s;
-                animation-iteration-count: infinite;
-
-                --iron-icon-width: 10vw;
-                --iron-icon-height: 10vh;
             }
 
             @media (max-width: 1500px) {
@@ -125,17 +75,13 @@
         <iron-image id="bg" style="background-color: #222;" src="../../images/bg.jpg" preload fade sizing="cover"></iron-image>
 
         <div id="content">
-            <js-nav></js-nav>
 
             <h1>Hi there, my name is Joeri Smits</h1>
             <h2>I'm a student in computer science. Take a look around to find more information about me and what I do.</h2>
 
         </div>
 
-        <div id="menu">
-            <iron-icon icon="expand-less"></iron-icon>
-            <span>MENU</span>
-        </div>
+        <js-nav></js-nav>
     </template>
     <script>
         /* global Polymer:false */
@@ -143,7 +89,7 @@
         'use strict';
         
         Polymer({
-            is: 'state-home',
+            is: 'state-home'
         });
     </script>
 </dom-module>
